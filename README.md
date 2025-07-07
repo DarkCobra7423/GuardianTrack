@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="/docs/GuardianTrack-logo.svg" alt="God's Eye Logo" height="200px" />
+</p>
+
 # 🛡️ GuardianTrack  
 ### **Tecnología al servicio de los desaparecidos**
 
