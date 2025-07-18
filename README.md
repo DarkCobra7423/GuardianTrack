@@ -98,6 +98,39 @@
 
 ---
 
+## Estructura de carpetas para Android Studio (Kotlin)
+
+~~~
+GuardianTrack/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/guardiantrack/
+│   │   │   │   ├── data/           # Repositorios, modelos, DB
+│   │   │   │   ├── ui/             # Pantallas (fragments/activities)
+│   │   │   │   ├── utils/          # Funciones generales
+│   │   │   │   ├── network/        # API calls (Retrofit, etc.)
+│   │   │   ├── res/
+│   │   │   │   ├── layout/         # XMLs
+│   │   │   │   ├── drawable/
+│   │   │   │   ├── values/
+├── build.gradle
+└── README.md
+~~~
+
+## APIs clave para funciones
+
+| Funcionalidad                | API o Herramienta Recomendada          |
+| ---------------------------- | -------------------------------------- |
+| Geolocalización continua     | `FusedLocationProviderClient` (Google) |
+| Zonas seguras / geofencing   | `GeofencingClient`                     |
+| Notificaciones push          | Firebase Cloud Messaging (FCM)         |
+| Mapa interactivo             | Google Maps SDK for Android            |
+| Almacenamiento local cifrado | EncryptedSharedPreferences / Room      |
+| Envío de datos / alertas     | Retrofit o Ktor (cliente HTTP)         |
+| Comunicación con backend     | REST API (NodeJS + MongoDB)            |
+
+
 ## ⚖️ Ética y principios
 
 🔒 **GuardianTrack respeta la privacidad, dignidad y memoria de las víctimas.**  
