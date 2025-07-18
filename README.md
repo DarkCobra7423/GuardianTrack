@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/docs/GuardianTrack-logo.svg" alt="GuardianTrack" height="200px" />
+  <img src="/docs/GuardianTrack-logo.svg1" alt="GuardianTrack" height="200px" />
 </p>
 
 # 🛡️ GuardianTrack  
