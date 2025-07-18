@@ -1,6 +1,7 @@
 <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" fill="none">
   <!-- Fondo oscuro -->
-  <rect width="220" height="220" rx="32" fill="#121212"/>
+  <!-- <rect width="220" height="220" rx="32" fill="#121212"/> -->
+  
   
   <!-- Señal de ubicación estilizada -->
   <path d="M110,50 C135,50 155,70 155,95 C155,130 110,175 110,175 C110,175 65,130 65,95 C65,70 85,50 110,50 Z" fill="#0078D7"/>
