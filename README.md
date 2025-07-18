@@ -5,71 +5,67 @@
 # 🛡️ GuardianTrack  
 ### **Tecnología al servicio de los desaparecidos**
 
-> **GuardianTrack** es una plataforma solidaria y tecnológica que nace para apoyar a familiares, colectivos de búsqueda y autoridades en la localización de personas desaparecidas. No pretende sustituir canales oficiales, sino **potenciar la búsqueda con herramientas digitales accesibles, seguras y colaborativas**.
+> **GuardianTrack** es una plataforma comunitaria de prevención y respuesta ante desapariciones.
 
 ---
 
-## 🎯 Nuestra misión
+## 🚀 Funcionalidades Clave
 
-🔎 **Centralizar información confiable** sobre personas desaparecidas.  
-📡 **Difundir alertas geolocalizadas** de forma automática.  
-📊 **Detectar patrones y zonas de riesgo** mediante análisis de datos.  
-🤝 **Crear una red colaborativa**, incluso en zonas con baja conectividad.  
-🧾 **Documentar hallazgos forenses** para aportar evidencia organizada.
+### 📍 Geolocalización Continua y Segura  
+- Seguimiento pasivo en segundo plano (modo de bajo consumo).  
+- Registro automático de las últimas 10 ubicaciones (una cada 10 minutos), accesibles solo por usuarios autorizados.
+
+### 🛡️ Zonas Seguras Personalizadas  
+- Define áreas seguras (hogar, escuela, trabajo).  
+- Si se detecta una salida sin autorización, se solicita un **código de verificación personal**.  
+
+### 🔐 Código de Verificación Inteligente  
+- Si no se ingresa el código en un plazo de 5 minutos:  
+  - Se activa una **prealerta privada** a contactos de confianza.  
+  - Se emite una **alerta comunitaria inmediata** a usuarios Guardian en un radio de 10 km.  
+  - El evento se guarda y se monitorea en tiempo real.
+
+### 🚨 Botón de Pánico  
+- Al presionar, se envía una alerta urgente con ubicación y datos clave a:  
+  - Contactos de confianza  
+  - Comunidad Guardian cercana  
+
+### 🧩 Boletines de Búsqueda y Reportes de Avistamiento  
+- Subida rápida de reportes: personas vistas, pertenencias, hallazgos o señales.  
+- Publicación opcional y automática en redes sociales con formato adaptado para búsqueda.
+
+### 🔒 Privacidad Reforzada  
+- CURP se utiliza exclusivamente para validar alertas.  
+- Datos personales encriptados y accesibles **solo** para autoridades verificadas y contactos designados.  
+- Las alertas comunitarias **nunca revelan datos personales** ni identificadores oficiales.
+
+### 🌍 Mapa de Calor Interactivo  
+- Visualiza zonas de alto riesgo, reportes recientes y hallazgos confirmados.
+
+### 📬 Canal Anónimo para Testimonios  
+- Recibe pistas, reportes o información relevante sin necesidad de revelar identidad.
+
+### 📲 Difusión Automatizada en Redes  
+- Permite compartir reportes o alertas en redes sociales de manera instantánea y controlada.
 
 ---
 
-## 🚀 Funcionalidades clave
+## ✨ Módulos Principales
 
-- 📁 Fichas detalladas con fotos, datos y últimos lugares vistos.  
-- 🗺️ Mapa de calor interactivo de desapariciones y hallazgos.  
-- 🧠 IA para reconocer ropa, tatuajes y objetos.  
-- 📢 Alertas automáticas por región, edad o género.  
-- 📬 Canal anónimo para recibir pistas o testimonios.  
-- 🕓 Línea de tiempo colaborativa por caso.  
-- 📲 Difusión automática en redes sociales.  
-- 🧬 Módulo forense digital para clasificar restos y pertenencias.
-
----
-
-## ✨ Módulos principales
-
-### 1️⃣ Registro de hallazgos en campo
-- Captura de foto, GPS y metadatos.
-- Clasificación (ropa, hueso, objeto personal).
-- Observaciones y estado del hallazgo.
-
-### 2️⃣ Clasificación ósea asistida
-- Soporte visual para identificar huesos.
-- Filtros por tipo, edad, tamaño o condición.
-
-### 3️⃣ Reconstrucción facial estimada *(experimental)*
-- Generación de rostros aproximados con IA a partir de cráneos.  
-- **Solo con fines orientativos.**
-
-### 4️⃣ Comparación con desaparecidos
-- Cruce automatizado con fichas (edad, sexo, estatura, ubicación).
-- Priorización de coincidencias probables.
-
-### 5️⃣ Análisis de lesiones (manual)
-- Registro de fracturas y observaciones forenses.
-- Base de datos visual con fines educativos y de apoyo técnico.
-
-### 6️⃣ Plataforma colaborativa
-- Roles diferenciados: colectivos, forenses, investigadores, observadores.
-- Colaboración segura entre organizaciones con control de acceso.
-
-### 7️⃣ Seguridad y privacidad
-- Encriptación de datos sensibles.
-- Consentimiento ético obligatorio para uso de imágenes.
-- Accesos controlados por rol y permisos.
+- 🛰️ **Módulo de Geolocalización** – Gestión, historial y seguimiento pasivo de ubicación.  
+- 🔐 **Módulo de Autenticación y Código Seguro** – Verificación personal, alertas automáticas, contactos de confianza.  
+- 📡 **Módulo de Alertas** – Botón de pánico, alertas comunitarias, notificaciones multicanal.  
+- 🧾 **Módulo de Reportes y Avistamientos** – Formulario de registro, carga de imágenes, validación cruzada.  
+- 🗺️ **Módulo de Visualización** – Mapas de calor, zonas de riesgo, rutas recientes.  
+- 📬 **Módulo de Comunicación Anónima** – Pistas y testimonios encriptados.  
+- 🤖 **Módulo de IA (futuro)** – Análisis de patrones, correlación de reportes, búsqueda inteligente.
 
 ---
 
 ## 🧑‍🤝‍🧑 ¿A quién está dirigido?
 
 - 🧭 Colectivos de búsqueda  
-- 🧑‍👩‍👧 Familiares de personas desaparecidas  
+- 👨‍👩‍👧 Familiares de personas desaparecidas  
 - 🌐 ONGs y organizaciones humanitarias  
 - 📰 Periodistas e investigadores  
 - 🧑‍🏫 Comunidad académica y estudiantil  
@@ -79,25 +75,26 @@
 
 ## 🧰 Tecnologías sugeridas
 
-| Componente      | Tecnología Propuesta           |
-|------------------|-------------------------------|
-| Frontend         | ReactJS / Vue                 |
-| Backend          | NodeJS / Spring Boot / Python |
-| Base de datos    | MongoDB / PostgreSQL          |
-| IA opcional      | TensorFlow.js / modelos ligeros |
-| Geolocalización  | Mapbox / Leaflet              |
-| Infraestructura  | Docker / VPS / Raspberry Pi   |
+| Componente             | Tecnología Propuesta                              |
+| ---------------------- | ------------------------------------------------- |
+| **App Móvil (actual)** | Android (Kotlin / Java) – Android Studio          |
+| **App Móvil (futuro)** | iOS (Swift) – Xcode                               |
+| **Backend API**        | NodeJS / Spring Boot / Python (FastAPI)           |
+| **Base de datos**      | MongoDB Atlas (nube) / MongoDB local              |
+| **Geolocalización**    | Android Location Services / Google Maps SDK       |
+| **Infraestructura**    | Firebase (Auth, FCM) / VPS + Docker               |
+| **IA opcional**        | TensorFlow Lite (para análisis en el dispositivo) |
 
 ---
 
-## ⚙️ Requisitos mínimos
+## ⚙️ Requisitos mínimos (Android)
 
-- 2 GB de RAM  
-- MongoDB 5+  
-- Java 17+  
-- NodeJS 16+  
-- Python 3.11+ (para módulos con IA)  
-- 1 TB de almacenamiento recomendado para imágenes
+ - Android Studio Flamingo o superior
+ - SDK de Android 24+ (Android 7.0+)
+ - Kotlin 1.9+ o Java 17
+ - Acceso a MongoDB Atlas o servidor NodeJS/API
+ - Firebase opcional para autenticación y notificaciones
+ - Permisos de ubicación y notificaciones activados
 
 ---
 
@@ -113,5 +110,17 @@
 
 📍 *Fase conceptual* – Sin código implementado.  
 🧭 Este repositorio está destinado al diseño, planeación y estructura inicial.  
-🤝 ¿Quieres colaborar? ¡Contáctanos!  
+🤝 ¿Quieres colaborar? ¡Contáctanos!
+
 > Especialmente si tienes experiencia con colectivos, UX en contextos de emergencia o análisis forense digital.
+
+---
+
+## 🧭 Casos de uso
+
+- **Carlos activa el botón de pánico** tras notar que lo siguen. Sus contactos y usuarios cercanos reciben su ubicación.  
+- **Ana no responde a su código de verificación** tras salir de su zona segura. Se lanza una prealerta automática.  
+- **Una persona anónima reporta un avistamiento** en el mapa con una fotografía y descripción del lugar.
+
+---
+
