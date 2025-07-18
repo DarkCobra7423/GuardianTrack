@@ -1,72 +1,38 @@
-<svg width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" fill="none">
-
-  <!-- Rejilla tipo mapa de fondo -->
-  <g stroke="#D3E3FC" stroke-width="0.5" opacity="0.3">
-    <path d="M0 20H400M0 40H400M0 60H400M0 80H400M0 100H400M0 120H400M0 140H400M0 160H400M0 180H400"/>
-    <path d="M20 0V220M40 0V220M60 0V220M80 0V220M100 0V220M120 0V220M140 0V220M160 0V220M180 0V220M200 0V220
-             M220 0V220M240 0V220M260 0V220M280 0V220M300 0V220M320 0V220M340 0V220M360 0V220M380 0V220"/>
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Fondo oscuro -->
+  <rect width="220" height="220" rx="32" fill="#121212"/>
+  
+  <!-- Señal de ubicación estilizada -->
+  <path d="M110,50 C135,50 155,70 155,95 C155,130 110,175 110,175 C110,175 65,130 65,95 C65,70 85,50 110,50 Z" fill="#0078D7"/>
+  
+  <!-- Círculo interior negro -->
+  <circle cx="110" cy="100" r="20" fill="#121212" stroke="#0078D7" stroke-width="2"/>
+  
+  <!-- Radar tipo avión -->
+  <g transform="translate(110,100)">
+    <!-- Radar base (círculos concéntricos) -->
+    <circle r="18" stroke="#0078D7" stroke-width="1" fill="none"/>
+    <circle r="12" stroke="#0078D7" stroke-width="1" fill="none"/>
+    <circle r="6" stroke="#0078D7" stroke-width="1" fill="none"/>
+    
+    <!-- Líneas del radar -->
+    <line x1="0" y1="0" x2="0" y2="-18" stroke="#0078D7" stroke-width="1"/>
+    <line x1="0" y1="0" x2="12.7" y2="-12.7" stroke="#0078D7" stroke-width="1"/>
+    <line x1="0" y1="0" x2="18" y2="0" stroke="#0078D7" stroke-width="1"/>
+    <line x1="0" y1="0" x2="12.7" y2="12.7" stroke="#0078D7" stroke-width="1"/>
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#0078D7" stroke-width="1"/>
+    
+    <!-- Barrido (triángulo que simula la barra del radar) con animación de rotación -->
+    <path id="radarSweep" d="M0 0 L3 -18 L-3 -18 Z" fill="#0078D7" opacity="0.4" transform-origin="0 0">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Avioncito estilizado (triángulo pequeño en el centro) -->
+    <path d="M0 -6 L3 4 L-3 4 Z" fill="#0078D7"/>
   </g>
 
-  <!-- Red colaborativa (ahora al fondo) -->
-  <circle cx="80"  cy="60"  r="8" fill="#0F62FE"/>
-  <circle cx="140" cy="40"  r="8" fill="#0F62FE"/>
-  <circle cx="300" cy="80"  r="8" fill="#0F62FE"/>
-  <circle cx="240" cy="130" r="8" fill="#0F62FE"/>
-  <line x1="80" y1="60" x2="140" y2="40" stroke="#0F62FE" stroke-width="4"/>
-  <line x1="140" y1="40" x2="300" y2="80" stroke="#0F62FE" stroke-width="4"/>
-  <line x1="80" y1="60" x2="240" y2="130" stroke="#0F62FE" stroke-width="4"/>
-  <line x1="240" y1="130" x2="300" y2="80" stroke="#0F62FE" stroke-width="4"/>
-
-  <!-- Rostro escaneado -->
-  <circle cx="200" cy="90" r="38" fill="url(#faceGrad)" stroke="#F8961E" stroke-width="3"/>
-  <circle cx="188" cy="80" r="5" fill="#14213D"/>
-  <circle cx="212" cy="80" r="5" fill="#14213D"/>
-  <path d="M200 85 Q195 105 200 115 Q205 105 200 85" stroke="#F8961E" stroke-width="2" fill="none"/>
-  <path d="M190 125 Q200 130 210 125" stroke="#F8961E" stroke-width="2" fill="none"/>
-
-  <!-- Puntos de landmark con animación -->
-  <circle cx="188" cy="80" r="1.5" fill="#00FFD1">
-    <animate attributeName="fill" values="#00FFD1;#14213D;#00FFD1" dur="3s" repeatCount="indefinite" begin="0s"/>
-  </circle>
-  <circle cx="212" cy="80" r="1.5" fill="#00FFD1">
-    <animate attributeName="fill" values="#00FFD1;#14213D;#00FFD1" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-  </circle>
-  <circle cx="200" cy="85" r="1.5" fill="#00FFD1">
-    <animate attributeName="fill" values="#00FFD1;#14213D;#00FFD1" dur="3s" repeatCount="indefinite" begin="1s"/>
-  </circle>
-  <circle cx="195" cy="100" r="1.5" fill="#00FFD1">
-    <animate attributeName="fill" values="#00FFD1;#14213D;#00FFD1" dur="3s" repeatCount="indefinite" begin="1.5s"/>
-  </circle>
-  <circle cx="205" cy="100" r="1.5" fill="#00FFD1">
-    <animate attributeName="fill" values="#00FFD1;#14213D;#00FFD1" dur="3s" repeatCount="indefinite" begin="2s"/>
-  </circle>
-  <circle cx="200" cy="125" r="1.5" fill="#00FFD1">
-    <animate attributeName="fill" values="#00FFD1;#14213D;#00FFD1" dur="3s" repeatCount="indefinite" begin="2.5s"/>
-  </circle>
-
-  <!-- Rectángulo de escaneo animado -->
-  <rect x="160" y="55" width="80" height="100" rx="10" ry="10" stroke="#00FFD1" stroke-width="1.5" stroke-dasharray="6 4">
-    <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-  </rect>
-
-  <!-- Texto principal -->
-  <text x="200" y="200" font-family="Montserrat, sans-serif" font-weight="800" font-size="32" fill="#14213D" text-anchor="middle">
+  <!-- Texto -->
+  <text x="110" y="205" font-size="20" text-anchor="middle" fill="#0078D7" font-family="Segoe UI, sans-serif" font-weight="600">
     GuardianTrack
   </text>
-  <text x="200" y="215" font-family="Montserrat, sans-serif" font-weight="500" font-size="13" fill="#2C2C2C" text-anchor="middle">
-    Tecnología al servicio de los desaparecidos
-  </text>
-
-  <!-- Simulacro de datos técnicos -->
-  <text x="10" y="15" font-family="Courier New, monospace" font-size="10" fill="#00FFD1">SCAN MODE: ACTIVE</text>
-  <text x="10" y="28" font-family="Courier New, monospace" font-size="10" fill="#00FFD1">MATCH ID: #A3D-998F</text>
-  <text x="300" y="28" font-family="Courier New, monospace" font-size="10" fill="#00FFD1" text-anchor="end">CONFIDENCE: 89%</text>
-
-  <!-- Gradiente de rostro -->
-  <defs>
-    <linearGradient id="faceGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFE3B3"/>
-      <stop offset="100%" stop-color="#FFD166"/>
-    </linearGradient>
-  </defs>
 </svg>
