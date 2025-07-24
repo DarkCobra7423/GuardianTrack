@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <!-- 🗺️ Mapa -->
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Botón personalizado para centrar ubicación -->
+    <ImageButton
+        android:id="@+id/btnCenterLocation"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/your_button_background"
+        android:contentDescription="Centrar ubicación"
+        android:src="@drawable/ic_my_location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 🔒 Overlay para bloquear el mapa -->
+    <View
+        android:id="@+id/mapOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80000000"
+        android:clickable="false"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@id/mapFragment"
+        app:layout_constraintEnd_toEndOf="@id/mapFragment"
+        app:layout_constraintStart_toStartOf="@id/mapFragment"
+        app:layout_constraintTop_toTopOf="@id/mapFragment" />
+
+    <!-- 📸 Botón SOS animado -->
+    <ImageView
+        android:id="@+id/btnSOS"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center_horizontal"
+        android:contentDescription="Botón SOS"
+        android:src="@drawable/sos_radar_animated"
+        app:layout_constraintBottom_toTopOf="@+id/sliderConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 🔤 Texto SOS -->
+    <TextView
+        android:id="@+id/sosText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="S O S"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <!-- 🖲️ Botón deslizable para confirmar -->
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/sliderConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        app:icon="@android:drawable/ic_lock_idle_alarm"
+        app:inner_color="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:outer_color="@color/warning"
+        app:text="Desliza para confirmar S O S" />
+
+    <!-- ❌ Botón cerrar (X) -->
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.7"
+        android:backgroundTint="#80070707"
+        android:text="X"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/sos_radar_vector">
+
+    <target
+        android:name="pulse_group"
+        android:animation="@animator/radar_pulse_animator" />
+</animated-vector>
+

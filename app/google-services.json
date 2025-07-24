@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "506129592033",
+    "project_id": "guardiantrack-70471",
+    "storage_bucket": "guardiantrack-70471.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506129592033:android:5eff221bbfb258c64a91a0",
+        "android_client_info": {
+          "package_name": "com.ariastormtechnologies.guardiantrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506129592033-bppevla20ug69qf9fmerdq8evkandfhb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ariastormtechnologies.guardiantrack",
+            "certificate_hash": "12213c77885c19e96274a33645b2d795f38da20c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiH97lgbYy5TY3RgvHN-RZgZivqNrXO4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

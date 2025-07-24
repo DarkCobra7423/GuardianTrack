@@ -1,0 +1,63 @@
+🗂️ Estructura sugerida con ejemplos
+
+com.guardiantrack/
+├── ui/                ← Pantallas (Activities, Fragments, ViewModels)
+│   ├── MainActivity.kt
+│   ├── AlertFragment.kt
+│   └── MapaFragment.kt
+│
+├── data/              ← Datos locales o estructurados
+│   ├── models/
+│   │   └── Ubicacion.kt
+│   │   └── ZonaSegura.kt
+│   ├── repositories/
+│   │   └── UbicacionRepository.kt
+│   └── local/
+│       └── AppDatabase.kt
+│       └── UbicacionDao.kt
+│
+├── network/           ← Comunicación remota (API)
+│   ├── ApiService.kt
+│   ├── AlertRemoteDataSource.kt
+│   └── NetworkModule.kt
+│
+├── utils/             ← Funciones generales / helpers
+│   ├── LocationUtils.kt
+│   ├── Extensions.kt
+│   └── Constants.kt
+
+📁 Descripción por carpeta
+ui/
+
+Aquí van todas tus pantallas (interfaz de usuario), controladores y lógica visual.
+Archivo	Qué hace
+MainActivity.kt	Pantalla principal
+AlertFragment.kt	Fragmento con el botón de pánico
+MapaFragment.kt	Muestra un mapa con la ubicación actual
+LoginViewModel.kt	(opcional) lógica de interfaz con MVVM
+data/
+
+Gestiona datos locales (modelos, Room, repositorios)
+Subcarpeta	Qué contiene
+models/	Clases de datos como Ubicacion, ZonaSegura
+repositories/	Accesos abstractos a los datos
+local/	Clases relacionadas a la base de datos local (Room)
+network/
+
+Aquí va todo lo relacionado con la comunicación con servidores externos (si hay).
+Archivo	Qué hace
+ApiService.kt	Define las llamadas HTTP con Retrofit
+AlertRemoteDataSource.kt	Gestiona alertas que se envían al servidor
+NetworkModule.kt	Configura Retrofit, interceptores, etc.
+utils/
+
+Funciones reutilizables que no dependen directamente de UI o data.
+Archivo	Qué hace
+LocationUtils.kt	Cálculos o validaciones relacionadas con GPS
+Extensions.kt	Funciones de extensión de Kotlin (String.format etc.)
+Constants.kt	Constantes globales como nombres de colecciones
+🧠 ¿Y res/?
+Carpeta	Uso
+res/layout/	Archivos .xml con los diseños de pantallas o fragments
+res/values/	strings.xml, colors.xml, themes.xml, etc.
+res/drawable/	Iconos, fondos, SVGs

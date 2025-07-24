@@ -1,0 +1,52 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Fondo rojo -->
+    <path
+        android:name="base_circle"
+        android:fillColor="#D32F2F"
+        android:pathData="M100,40 A60,60 0 1,1 99.9,40 Z" />
+
+    <!-- Texto SOS simulado -->
+    <!--<group
+        android:name="sos_text"
+        android:translateX="45"
+        android:translateY="130"
+        android:scaleX="1.5"
+        android:scaleY="1.5">
+
+
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M10,5 C6,5 3,8 3,12 C3,16 6,19 10,19 C14,19 17,22 17,26 C17,30 14,33 10,33 C5,33 2,30 2,26 L7,26 C7,28 8,29 10,29 C12,29 13,28 13,26 C13,24 12,23 10,23 C5,23 0,18 0,12 C0,6 5,1 10,1 C15,1 20,6 20,12 L15,12 C15,8 13,5 10,5 Z" />
+
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M30,5 C25,5 21,10 21,16 C21,22 25,27 30,27 C35,27 39,22 39,16 C39,10 35,5 30,5 Z M30,10 C33,10 35,13 35,16 C35,19 33,22 30,22 C27,22 25,19 25,16 C25,13 27,10 30,10 Z" />
+
+
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M50,5 C46,5 43,8 43,12 C43,16 46,19 50,19 C54,19 57,22 57,26 C57,30 54,33 50,33 C45,33 42,30 42,26 L47,26 C47,28 48,29 50,29 C52,29 53,28 53,26 C53,24 52,23 50,23 C45,23 40,18 40,12 C40,6 45,1 50,1 C55,1 60,6 60,12 L55,12 C55,8 53,5 50,5 Z" />
+    </group>-->
+
+
+    <!-- Grupo animado -->
+    <group
+        android:name="pulse_group"
+        android:pivotX="100"
+        android:pivotY="100">
+
+        <!-- Círculo animado (radar) -->
+        <path
+            android:name="radar_circle"
+            android:fillColor="#00FFFFFF"
+            android:strokeColor="#D32F2F"
+            android:strokeWidth="4"
+            android:pathData="M100,40 A60,60 0 1,1 99.9,40 Z"
+            android:alpha="0.6" />
+    </group>
+</vector>

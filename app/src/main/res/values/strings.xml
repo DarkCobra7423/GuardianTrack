@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GuardianTrack</string>
+    <string name="default_web_client_id">506129592033-0fiu94s9l0sijnm8iug21utvnq6ed9sk.apps.googleusercontent.com</string>
+    <string name="notification_icon_desc">Icono de notificación</string>
+</resources>
