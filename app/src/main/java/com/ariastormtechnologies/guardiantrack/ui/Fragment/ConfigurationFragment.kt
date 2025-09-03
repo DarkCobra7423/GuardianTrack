@@ -14,6 +14,18 @@ class ConfigurationFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_configuration, container, false)
+
+        val btnUpdateProfile = view.findViewById<View>(R.id.btnUpdateInformation)
+        btnUpdateProfile.setOnClickListener {
+            // Aquí puedes abrir un nuevo fragmento, una actividad o un diálogo
+            // Ejemplo: abrir un fragmento para editar el perfil
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ProfileFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         return view
     }
+
 }

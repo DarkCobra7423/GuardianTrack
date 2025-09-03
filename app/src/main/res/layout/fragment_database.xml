@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/ListPersonMissing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!-- <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+    Foto de perfil
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_profile"
+        android:contentDescription="Foto de persona desaparecida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+     Badge indicador encima de la foto
+    <View
+        android:id="@+id/statusBadge"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@drawable/status_badge_background"
+        app:layout_constraintTop_toTopOf="@id/imgProfile"
+        app:layout_constraintEnd_toEndOf="@id/imgProfile"
+        android:elevation="4dp" />
+
+    Nombre
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre Apellido"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        app:layout_constraintStart_toEndOf="@id/imgProfile"
+        app:layout_constraintTop_toTopOf="@id/imgProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="12dp" />
+
+     Protocolo (ej. Alba)
+    <TextView
+        android:id="@+id/txtProtocol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Protocolo: Alba"
+        android:textSize="12sp"
+        android:textColor="#666"
+        app:layout_constraintStart_toStartOf="@id/txtName"
+        app:layout_constraintTop_toBottomOf="@id/txtName"
+        android:layout_marginTop="4dp"/>
+
+     Ciudad y Edad
+    <TextView
+        android:id="@+id/txtCityAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciudad • 32 años"
+        android:textSize="12sp"
+        android:textColor="#666"
+        app:layout_constraintStart_toEndOf="@id/txtProtocol"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtProtocol"
+        android:layout_marginStart="8dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout> -->

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Informe Sísmico - IRIS & USGS</title>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+</head>  
+<style type="text/css">
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px 10px;
+      color: #34495e;
+    }
+
+    .card {
+      background: white;
+      max-width: 480px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 25px 30px;
+    }
+
+    .header {
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px 25px;
+      margin-bottom: 25px;
+    }
+
+    .info-item {
+      background: #ecf0f1;
+      border-radius: 8px;
+      padding: 15px 20px;
+    }
+
+    .info-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .info-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #34495e;
+    }
+
+    .description {
+      background: #f9f9f9;
+      border-left: 5px solid #3498db;
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    #map {
+      /*background: lightgray !important;*/
+      height: 250px !important;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header">
+      <h2>Reporte Sísmico</h2>
+      <small><em>Fuente: IRIS & USGS</em></small>
+    </div>
+
+    <div class="info-grid">
+  <div class="info-item">
+    <span class="info-label">Fecha</span>
+    <span class="info-value">Cargando...</span>
+  </div>
+  <div class="info-item">
+    <span class="info-label">Magnitud</span>
+    <span class="info-value">Cargando...</span>
+  </div>
+  <div class="info-item">
+    <span class="info-label">Profundidad</span>
+    <span class="info-value">Cargando...</span>
+  </div>
+  <div class="info-item">
+    <span class="info-label">Tipo de Evento</span>
+    <span class="info-value">Cargando...</span>
+  </div>
+  <div class="info-item" style="grid-column: span 2;">
+    <span class="info-label">Ubicación</span>
+    <span class="info-value">Cargando...</span>
+  </div>
+  
+  <!-- Nuevos campos -->
+  <div class="info-item">
+    <span class="info-label">Alerta</span>
+    <span class="info-value" id="alertValue">Cargando...</span>
+  </div>
+  <div class="info-item">
+    <span class="info-label">Tsunami</span>
+    <span class="info-value" id="tsunamiValue">Cargando...</span>
+  </div>
+  <div class="info-item">
+    <span class="info-label">Reportes</span>
+    <span class="info-value" id="feltValue">Cargando...</span>
+  </div>
+  <div class="info-item" style="grid-column: span 2;">
+    <span class="info-label">Reporte Oficial</span>
+    <span class="info-value" id="urlValue">Cargando...</span>
+  </div>
+</div>
+
+
+    <div class="description">
+      Esperando datos del servidor...
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
+  <script>
+    let map;
+let marker;
+
+function updateData(data) {
+  // Actualizar info existente
+  const infoValues = document.querySelectorAll(".info-value");
+  infoValues[0].innerText = new Date(data.time).toLocaleString();
+  infoValues[1].innerText = data.mag + " Mw";
+  infoValues[2].innerText = data.depth + " km";
+  infoValues[3].innerText = "Terremoto";
+  infoValues[4].innerText = data.place;
+
+  // Nuevos campos
+  document.getElementById("alertValue").innerText = data.alert !== "sin datos" ? data.alert : "No disponible";
+  document.getElementById("tsunamiValue").innerText = data.tsunami === 1 ? "Sí" : "No";
+  document.getElementById("feltValue").innerText = data.felt > 0 ? data.felt + " reportes" : "No reportes";
+
+  // Enlace clicable
+  if (data.url) {
+    document.getElementById("urlValue").innerHTML = `<a href="${data.url}" target="_blank" rel="noopener noreferrer">Ver reporte</a>`;
+  } else {
+    document.getElementById("urlValue").innerText = "No disponible";
+  }
+
+  document.querySelector(".description").innerText =
+    `Se registró un sismo de magnitud ${data.mag} a una profundidad de ${data.depth} km en ${data.place}.`;
+
+  // Mapa
+  if (!map) {
+    map = L.map("map").setView([data.lat, data.lon], 6);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+  } else {
+    map.setView([data.lat, data.lon], 6);
+  }
+
+  L.marker([data.lat, data.lon])
+    .addTo(map)
+    .bindPopup("Sismo registrado aquí")
+    .openPopup();
+}
+
+
+  </script>
+
+</body>
+</html>

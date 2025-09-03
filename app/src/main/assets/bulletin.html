@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boletín de persona desaparecida</title>
+  <style>
+    body {
+      background-color: #f2f3f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .bulletin-card {
+      background: #fff;
+      max-width: 450px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .carousel-btn:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .prev-btn {
+      left: 8px;
+    }
+
+    .next-btn {
+      right: 8px;
+    }
+
+    .protocol-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #e74c3c;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 2;
+    }
+
+    .details-section {
+      padding: 16px;
+      flex: 1;
+    }
+
+    .name {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .details-section p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .details-section p strong {
+      color: #333;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+      border-top: 1px solid #eee;
+    }
+
+    .btn {
+      flex: 1;
+      margin: 0 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .share-btn {
+      background: #2d79c7;
+      color: white;
+    }
+
+    .report-btn {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .share-btn:hover {
+      background: #1f5a9f;
+    }
+
+    .report-btn:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bulletin-card">
+  <div class="carousel">
+    <span class="protocol-tag" id="protocolTag">Protocolo</span>
+    <button class="carousel-btn prev-btn">&#10094;</button>
+    <div class="carousel-images" id="carouselImages"></div>
+    <button class="carousel-btn next-btn">&#10095;</button>
+  </div>
+
+  <div class="details-section" id="detailsSection">
+    <!-- Datos dinámicos aquí -->
+  </div>
+
+  <div class="actions">
+    <button class="btn share-btn">Compartir</button>
+    <button class="btn report-btn">Reportar avistamiento</button>
+  </div>
+</div>
+
+<script>
+  const personData = JSON.parse(localStorage.getItem("selectedPerson") || "{}");
+
+  if (!personData || !personData.full_name) {
+    alert("No hay información para mostrar.");
+  }
+
+  // Carousel
+  const carouselImages = document.getElementById('carouselImages');
+  const images = personData.photo_urls || ["https://via.placeholder.com/450"];
+  images.forEach(url => {
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = "Foto";
+    carouselImages.appendChild(img);
+  });
+
+  const totalImages = images.length;
+  let currentIndex = 0;
+
+  const updateCarousel = () => {
+    const width = carouselImages.children[0].clientWidth;
+    carouselImages.style.transform = `translateX(-${currentIndex * width}px)`;
+  };
+
+  const safeValue = (value, fallback = "No especificado") =>
+  value && value !== "unknown" && value.trim() !== "" ? value : fallback;
+
+  document.querySelector('.next-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  });
+
+  document.querySelector('.prev-btn').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+
+  // Protocolo
+  document.getElementById("protocolTag").textContent = personData.protocol || "Protocolo";
+
+  // Sección de detalles
+  const details = document.getElementById("detailsSection");
+  const fecha = new Date(personData.missing_date).toLocaleDateString();
+
+  details.innerHTML = `
+    <h2 class="name">${personData.full_name}, ${personData.age} años</h2>
+    <p><strong>Desaparecio desde:</strong> ${fecha}</p>
+    <p><strong>Última vez que se le vio:</strong> ${personData.city}, ${personData.state}</p>
+    <p><strong>Señas particulares:</strong> ${personData.description || "No especificado"}</p>
+    <p><strong>Complexión:</strong> ${personData.complexion || "No especificado"}</p>
+    <p><strong>Notas:</strong> ${safeValue(personData.notes, "Sin detalles extras")}</p>
+    <p><strong>Reportante:</strong> ${personData.reporter || "No especificado"}</p>
+  `;
+
+  // Iniciar carrusel al cargar
+  window.addEventListener("load", updateCarousel);
+</script>
+
+</body>
+</html>

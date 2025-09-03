@@ -21,14 +21,16 @@
     <!-- Botón personalizado para centrar ubicación -->
     <ImageButton
         android:id="@+id/btnCenterLocation"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="4dp"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/your_button_background"
         android:contentDescription="Centrar ubicación"
-        android:src="@drawable/ic_my_location"
+        android:src="@drawable/ic_target"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -70,29 +72,33 @@
         android:textStyle="bold" />
 
     <!-- 🖲️ Botón deslizable para confirmar -->
+
+    <!-- ❌ Botón cerrar (X) -->
+
     <com.ncorti.slidetoact.SlideToActView
         android:id="@+id/sliderConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="16dp"
-        android:visibility="gone"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="88dp"
+        android:visibility="visible"
         app:icon="@android:drawable/ic_lock_idle_alarm"
         app:inner_color="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:outer_color="@color/warning"
         app:text="Desliza para confirmar S O S" />
 
-    <!-- ❌ Botón cerrar (X) -->
     <Button
         android:id="@+id/btnClose"
         android:layout_width="62dp"
         android:layout_height="62dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="28dp"
         android:alpha="0.7"
         android:backgroundTint="#80070707"
         android:text="X"

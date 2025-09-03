@@ -1,0 +1,4 @@
+<!-- Ejemplo: circle_bg_orange.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="#65ddb7" />
+</shape>
