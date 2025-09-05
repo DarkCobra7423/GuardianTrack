@@ -141,7 +141,7 @@ GuardianTrack/
 
 ## 🧪 Estado actual del proyecto
 
-📍 *Fase conceptual* – Sin código implementado.  
+📍 *Fase Inicial* – Codigo del funcionamiento basico implementado.  
 🧭 Este repositorio está destinado al diseño, planeación y estructura inicial.  
 🤝 ¿Quieres colaborar? ¡Contáctanos!
 

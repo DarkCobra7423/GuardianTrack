@@ -1,128 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Sign in -->
+    <WebView
+        android:id="@+id/myinformation"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/btnGoogleSignIn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogleSignIn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        app:layout_constraintBottom_toTopOf="@+id/txtUserInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Título -->
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="👤 Mi Información"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+    <!-- Texto de sesión -->
+    <TextView
+        android:id="@+id/txtUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="No has iniciado sesión"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Nombre -->
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre(s)"
-            android:inputType="textPersonName"
-            android:layout_marginTop="16dp" />
-
-        <!-- Apellido paterno -->
-        <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Apellido Paterno"
-            android:inputType="textPersonName"
-            android:layout_marginTop="12dp" />
-
-        <!-- Apellido materno -->
-        <EditText
-            android:id="@+id/editTextText3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Apellido Materno"
-            android:inputType="textPersonName"
-            android:layout_marginTop="12dp" />
-
-        <!-- CURP -->
-        <EditText
-            android:id="@+id/editTextText4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CURP"
-            android:inputType="text"
-            android:layout_marginTop="12dp" />
-
-        <!-- Fecha de nacimiento -->
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Fecha de nacimiento"
-            android:inputType="date"
-            android:layout_marginTop="12dp" />
-
-        <!-- Título contactos emergencia -->
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📞 Contactos de emergencia"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp" />
-
-        <!-- Botón para agregar -->
-        <Button
-            android:id="@+id/btnAddEmergencyContact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+" />
-
-        <!-- Lista contactos emergencia -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerEmergencyContacts"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp" />
-
-        <!-- Título me tienen como contacto -->
-        <TextView
-            android:id="@+id/textViewContactsMe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="👥 Me tienen como contacto"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="24dp" />
-
-        <!-- Lista me tienen como contacto -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerContactsMe"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="12dp" />
-
-        <!-- Sign in -->
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/btnGoogleSignIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
-
-        <!-- Texto de sesión -->
-        <TextView
-            android:id="@+id/txtUserInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No has iniciado sesión"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal" />
-
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css">
+    /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  /*margin: 40px auto;*/
+  background-color: #fff;
+  padding: 30px;
+  padding-top: 0px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Etiquetas */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+/* Inputs, selects y textarea */
+input[type="text"],
+input[type="number"],
+input[type="url"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botón */
+button[type="submit"] {
+  background-color: #0057d8;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0041a8;
+}
+
+/* Pre para mostrar el JSON */
+#output {
+  background-color: #eee;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #222;
+  border: 1px solid #ccc;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.contact-info {
+  font-size: 14px;
+  word-break: break-word;
+  max-width: 70%;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.contact-actions button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.contact-actions .delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.contact-actions .delete-button:hover {
+  background-color: #b02a37;
+}
+
+.contact-actions .track-button {
+  background-color: #198754;
+  color: white;
+}
+
+.contact-actions .track-button:hover {
+  background-color: #146c43;
+}
+
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <h2>👤 Mi informacion</h2>
+  <form id="missingForm">
+
+    <!-- <div class="mb-3">
+      <label for="folio" class="form-label">Folio</label>
+      <input type="text" class="form-control" id="folio" required>
+    </div> -->
+
+    <div class="mb-3">
+      <label for="full_name" class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="full_name" required value="Carlos Daniel Angel Padilla">
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Edad</label>
+      <input type="number" class="form-control" id="age" required value="27">
+    </div>
+
+    <div class="mb-3">
+      <label for="gender" class="form-label">Género</label>
+      <select class="form-select" id="gender" required>
+        <option value="">Selecciona...</option>
+        <option value="F">Femenino</option>
+        <option value="M" selected>Masculino</option>        
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="state" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="state" required value="Tabasco">
+    </div>
+
+    <div class="mb-3">
+      <label for="city" class="form-label">Ciudad</label>
+      <input type="text" class="form-control" id="city" required value="Emiliano Zapata">
+    </div>
+
+    <!-- <div class="mb-3">
+      <label for="missing_date" class="form-label">Fecha de desaparición</label>
+      <input type="date" class="form-control" id="missing_date" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="protocol" class="form-label">Protocolo</label>
+      <input type="text" class="form-control" id="protocol" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Estado del caso</label>
+      <select class="form-select" id="status" required>
+        <option value="null">Sin especificar</option>
+        <option value="Missing">Desaparecido</option>
+        <option value="Found">Localizado</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="condition" class="form-label">Condición</label>
+      <select class="form-select" id="condition">
+        <option value="">Sin especificar</option>
+        <option value="Alive">Con vida</option>
+        <option value="Deceased">Sin vida</option>
+      </select>
+    </div> -->
+
+    <div class="mb-3">
+      <label class="form-label">Fotos (mínimo 1)</label>
+      <input type="url" class="form-control mb-2" id="photo1" placeholder="URL de la foto 1" required value="https://foto.jpg">
+      <input type="url" class="form-control mb-2" id="photo2" placeholder="URL de la foto 2">
+      <input type="url" class="form-control" id="photo3" placeholder="URL de la foto 3">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción</label>
+      <textarea class="form-control" id="description" required>Camisa Verde</textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="complexion" class="form-label">Complexión</label>
+      <textarea class="form-control" id="complexion" required>Altura 1.64</textarea>
+    </div>
+
+    <!-- <div class="mb-3">
+      <label for="reporter" class="form-label">Persona que reporta</label>
+      <input type="text" class="form-control" id="reporter" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="notes" class="form-label">Notas</label>
+      <textarea class="form-control" id="notes"></textarea>
+    </div> -->
+
+    <div class="mb-3">
+      <label for="curp" class="form-label">CURP</label>
+      <input type="text" class="form-control" id="curp" value="AEPC980724HTCNDR07">
+    </div>
+
+    <!-- <div class="mb-3">
+      <label for="userId" class="form-label">User ID (opcional)</label>
+      <input type="text" class="form-control" id="userId">
+    </div> -->
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  
+  <hr class="my-4">
+
+<h3>📞 Contactos de emergencia</h3>
+<div id="emergencyContactsContainer"></div>
+
+<button type="button" class="btn btn-secondary mb-3" onclick="addEmergencyContact()">+ Agregar contacto</button>
+
+<hr class="my-4">
+
+<h3>👥 Me tienen como contacto</h3>
+<div id="contactsMeContainer">
+  <!-- Ejemplo estático, esto se llenará dinámicamente más adelante -->
+  <div class="contact-card">
+    <strong>Nombre:</strong> Burro Berto Burrieta Burron El Burro Belgas <br>
+    <button class="track-button">📍 Rastrear</button>
+  </div>
+</div>
+</div>
+
+</body>
+<script type="text/javascript">
+
+let emergencyContactIndex = 0;
+
+function addEmergencyContact() {
+  const container = document.getElementById("emergencyContactsContainer");
+
+  const div = document.createElement("div");
+  div.className = "contact-card";
+  div.innerHTML = `
+    <label>CURP</label>
+    <input type="text" class="form-control mb-2" name="emergency_name_${emergencyContactIndex}" required>
+    
+    <button type="button" class="btn btn-sm btn-danger" onclick="this.parentElement.remove()">🗑️ Eliminar</button>
+  `;
+
+  container.appendChild(div);
+  emergencyContactIndex++;
+}
+
+</script>
+<script>
+  document.getElementById("missingForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      //folio: document.getElementById("folio").value,
+      full_name: document.getElementById("full_name").value,
+      age: parseInt(document.getElementById("age").value),
+      gender: document.getElementById("gender").value,
+      state: document.getElementById("state").value,
+      city: document.getElementById("city").value,
+      //missing_date: document.getElementById("missing_date").value,
+      //protocol: document.getElementById("protocol").value,
+      //status: document.getElementById("status").value,
+      //condition: document.getElementById("condition").value,
+      photo_urls: [
+        document.getElementById("photo1").value,
+        document.getElementById("photo2").value,
+        document.getElementById("photo3").value
+      ].filter(url => url.trim() !== ""),
+      description: document.getElementById("description").value,
+      complexion: document.getElementById("complexion").value,
+      //reporter: document.getElementById("reporter").value,
+      //notes: document.getElementById("notes").value,
+      curp: document.getElementById("curp").value,
+      //userId: null  // ← No enviar nada desde aquí, Android lo reemplaza
+    };
+
+    if (window.Android && Android.submitMissingPerson) {
+      Android.submitMissingPerson(JSON.stringify(data));
+    } else {
+      alert("Android interface not found");
+    }
+  });
+</script>
+
+</html>

@@ -18,4 +18,7 @@ interface ApiService {
     @GET("missing")
     suspend fun getMissingPeople(): Response<List<MissingPerson>>
 
+    @POST("missing")
+    suspend fun createMissingPerson(@Body person: MissingPerson): Response<MissingPerson>
+
 }

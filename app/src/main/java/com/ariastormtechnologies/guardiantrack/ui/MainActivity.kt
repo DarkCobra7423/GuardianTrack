@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var webView: WebView
 
+    companion object {
+        var GLOBAL_USER_ID: String? = "687c6679886044c43b1483ea" // Reemplaza por un userId real
+    }
+
     // Método que se ejecuta al crear la actividad
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

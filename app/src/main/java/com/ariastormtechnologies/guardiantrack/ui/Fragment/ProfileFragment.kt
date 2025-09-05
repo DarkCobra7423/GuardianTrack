@@ -5,16 +5,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.webkit.WebView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ariastormtechnologies.guardiantrack.R
+import com.ariastormtechnologies.guardiantrack.ui.WebFormInterface
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.SignInButton
 import com.google.firebase.auth.*
 
 class ProfileFragment : Fragment() {
+
+    companion object {
+        var GLOBAL_USER_ID: String? = "687c6679886044c43b1483ea" // Reemplaza por un userId real
+    }
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -26,6 +32,14 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        val webView: WebView = view.findViewById(R.id.myinformation)
+        webView.settings.javaScriptEnabled = true
+        webView.settings.domStorageEnabled = true
+        webView.addJavascriptInterface(WebFormInterface(requireContext()), "Android")
+        webView.loadUrl("file:///android_asset/myinformation.html") // O URL remota si usas Codepen exportado
+
+
 
         // 1. Configurar Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -90,4 +104,5 @@ class ProfileFragment : Fragment() {
         view?.findViewById<TextView>(R.id.txtUserInfo)?.text = "Hola, ${user?.displayName}\nEmail: ${user?.email}"
 
     }
+
 }

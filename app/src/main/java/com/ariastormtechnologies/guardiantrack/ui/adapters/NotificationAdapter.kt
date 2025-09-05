@@ -28,7 +28,7 @@ class NotificationAdapter(
         holder.binding.apply {
             // Aquí haces binding con las vistas del item_notification.xml
             stateLabel.text = "ALERTA"
-            timestamp.text = formatDate(person.created_at) // Puedes formatear fecha
+            timestamp.text = formatDate(person.created_at ?: "")
             //description.text = "${person.full_name}. ${person.description}"
             description.text = "${person.full_name}. Se encuentra desaparecido."
         }
